@@ -6,6 +6,7 @@ import Nav from "./components/Nav/Nav";
 import Banner from "./components/Banner/Banner";
 import Technologies from "./components/Technologies/Technologies";
 import type { TechTypeProps } from "./Type/TechType";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const loadTechnologies = async (): Promise<TechTypeProps[]> => {
@@ -38,7 +39,9 @@ function App() {
       >
         <Technologies techPromise={techPromise} />
       </Suspense>
-      
+
+      <Footer></Footer>
+
 
 
 

@@ -1,3 +1,6 @@
+
+import FooterImage from  '../../assets/logo-text.png'
+
 type FooterLink = {
   label: string;
   href: string;
@@ -54,7 +57,7 @@ const Footer = () => {
               aria-label="Go to homepage"
             >
               <img
-                src="/logo-text.png"
+                src= {FooterImage}
                 alt="DevStack"
                 className="h-7 w-auto object-contain"
               />
