@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import logoText from "../../assets/logo-text.png"; 
 
 type NavItem = {
   label: string;
@@ -7,34 +7,86 @@ type NavItem = {
 };
 
 const navItems: NavItem[] = [
-  { label: "Home", href: "/" },
-  { label: "Fixture", href: "/fixture" },
-  { label: "Teams", href: "/teams" },
-  { label: "Schedules", href: "/schedules" },
+  { label: "Home", href: "#home" },
+  { label: "Technologies", href: "#technologies" },
+  { label: "Projects", href: "#projects" },
+  { label: "About", href: "#about" },
+  { label: "Contact", href: "#contact" },
 ];
 
-export default function Nav() {
- 
+const Nav = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+
+  const closeMenu = (): void => {
+    setIsMenuOpen(false);
+  };
 
   return (
-    <header className="bg-white">
-      <nav className="relative mx-auto flex h-24 max-w-7xl items-center justify-between px-5 sm:px-8">
-        {/* Logo */}
-        <a href="/" aria-label="Cricket home">
+    <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white shadow-sm">
+      <nav className="mx-auto flex min-h-16 max-w-7xl items-center justify-between px-3 sm:px-6 lg:px-8">
+        {/* Mobile menu button */}
+        <button
+          type="button"
+          onClick={() => setIsMenuOpen((previous) => !previous)}
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-gray-700 transition hover:bg-gray-100 md:hidden"
+          aria-label="Toggle navigation menu"
+          aria-expanded={isMenuOpen}
+        >
+          {isMenuOpen ? (
+            <svg
+              className="h-6 w-6"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 6l12 12M18 6L6 18"
+              />
+            </svg>
+          ) : (
+            <svg
+              className="h-6 w-6"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 7h16M4 12h16M4 17h16"
+              />
+            </svg>
+          )}
+        </button>
+
+        {/* Logo image */}
+        <a
+          href="#home"
+          onClick={closeMenu}
+          className="flex shrink-0 items-center"
+        >
           <img
-            src= ""
-            alt="Cricket logo"
-            className="h-20 w-auto object-contain"
+            src= {logoText}
+            alt="DevStack"
+            className="h-8 w-auto object-contain sm:h-9"
           />
         </a>
 
         {/* Desktop navigation */}
-        <ul className="hidden items-center gap-5 md:flex">
-          {navItems.map((item) => (
+        <ul className="hidden items-center gap-8 md:flex">
+          {navItems.map((item, index) => (
             <li key={item.label}>
               <a
                 href={item.href}
-                className="text-[17px] font-medium text-slate-950 transition-colors hover:text-orange-500"
+                className={`text-sm font-medium transition hover:text-pink-600 ${
+                  index === 0 ? "text-pink-600" : "text-slate-600"
+                }`}
               >
                 {item.label}
               </a>
@@ -42,67 +94,52 @@ export default function Nav() {
           ))}
         </ul>
 
-        <div className="flex items-center gap-3">
-          {/* Balance */}
-          <button
-            type="button"
-            className="flex h-[70px] min-w-[94px] items-center justify-center gap-3 rounded-2xl bg-slate-50 px-4 text-2xl text-slate-900 shadow-sm ring-1 ring-black/5"
+        {/* Sign-in and Sign-up buttons */}
+        <div className="flex shrink-0 items-center gap-1 sm:gap-3">
+          <a
+            href="#signin"
+            className="rounded-full px-2 py-2 text-xs font-semibold text-slate-700 transition hover:bg-gray-100 hover:text-pink-600 sm:px-4 sm:text-sm"
           >
-            <span className="flex size-8 items-center justify-center rounded-full bg-orange-400 text-xl font-bold">
-              $
-            </span>
-            <span>{coin} million</span>
-          </button>
+            Sign In
+          </a>
 
-          {/* Mobile menu button */}
-          <button
-            type="button"
-            aria-label="Toggle navigation menu"
-            aria-expanded={menuOpen}
-            onClick={() => setMenuOpen((current) => !current)}
-            className="rounded-lg p-2 text-slate-900 hover:bg-slate-100 md:hidden"
+          <a
+            href="#signup"
+            className="whitespace-nowrap rounded-full bg-pink-600 px-3 py-2 text-xs font-semibold text-white shadow-sm transition hover:bg-pink-700 sm:px-5 sm:text-sm"
           >
-            {menuOpen ? (
-              <svg
-                className="size-7"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M6 6l12 12M18 6 6 18" />
-              </svg>
-            ) : (
-              <svg
-                className="size-7"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
-          </button>
+            Sign Up
+          </a>
         </div>
-
-        {/* Mobile navigation */}
-        {menuOpen && (
-          <ul className="absolute left-5 right-5 top-24 z-50 rounded-xl bg-white p-4 shadow-lg ring-1 ring-black/5 md:hidden">
-            {navItems.map((item) => (
-              <li key={item.label}>
-                <a
-                  href={item.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="block rounded-lg px-4 py-3 font-medium text-slate-900 hover:bg-orange-50 hover:text-orange-500"
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        )}
       </nav>
+
+      {/* Mobile dropdown menu */}
+      <div
+        className={`overflow-hidden bg-white transition-all duration-300 md:hidden ${
+          isMenuOpen
+            ? "max-h-96 border-t border-gray-100 opacity-100"
+            : "max-h-0 opacity-0"
+        }`}
+      >
+        <ul className="space-y-1 px-4 py-4">
+          {navItems.map((item, index) => (
+            <li key={item.label}>
+              <a
+                href={item.href}
+                onClick={closeMenu}
+                className={`block rounded-lg px-4 py-3 text-sm font-medium transition hover:bg-pink-50 hover:text-pink-600 ${
+                  index === 0
+                    ? "bg-pink-50 text-pink-600"
+                    : "text-slate-700"
+                }`}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </header>
   );
-}
+};
+
+export default Nav;
