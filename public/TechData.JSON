@@ -1,10 +1,29 @@
-
 [
+  {
+    "id": "react",
+    "name": "React",
+    "category": "Frontend",
+    "description": "A declarative, component-based JavaScript library for building modern user interfaces.",
+    "icon": "https://icon.icepanel.io/Technology/svg/React.svg",
+    "rating": 4.9,
+    "difficulty": "Beginner-Friendly",
+    "badge": "Popular"
+  },
+  {
+    "id": "postgresql",
+    "name": "PostgreSQL",
+    "category": "Database",
+    "description": "A powerful, open-source object-relational database system with proven reliability.",
+    "icon": "https://icon.icepanel.io/Technology/svg/PostgresSQL.svg",
+    "rating": 4.9,
+    "difficulty": "Intermediate",
+    "badge": "Top SQL"
+  },
   {
     "id": "vue",
     "name": "Vue.js",
     "category": "Frontend",
-    "description": "An approachable, performant, and versatile framework for building modern web user interfaces.",
+    "description": "A progressive and approachable JavaScript framework for building modern user interfaces.",
     "icon": "https://icon.icepanel.io/Technology/svg/Vue.js.svg",
     "rating": 4.8,
     "difficulty": "Beginner-Friendly",
@@ -14,7 +33,7 @@
     "id": "svelte",
     "name": "Svelte",
     "category": "Frontend",
-    "description": "A modern framework that creates fast web applications using compile-time reactivity.",
+    "description": "A modern framework that creates fast web applications using efficient compile-time reactivity.",
     "icon": "https://icon.icepanel.io/Technology/svg/Svelte.svg",
     "rating": 4.8,
     "difficulty": "Intermediate",
@@ -24,7 +43,7 @@
     "id": "nextjs",
     "name": "Next.js",
     "category": "Frontend",
-    "description": "A React framework for building full-stack web applications with powerful rendering features.",
+    "description": "A powerful React framework for creating production-ready full-stack web applications.",
     "icon": "https://icon.icepanel.io/Technology/svg/Next.js.svg",
     "rating": 4.9,
     "difficulty": "Intermediate",
@@ -34,7 +53,7 @@
     "id": "nodejs",
     "name": "Node.js",
     "category": "Backend",
-    "description": "An asynchronous JavaScript runtime for building fast, scalable, and event-driven applications.",
+    "description": "An asynchronous JavaScript runtime for building scalable server-side and network applications.",
     "icon": "https://icon.icepanel.io/Technology/svg/Node.js.svg",
     "rating": 4.8,
     "difficulty": "Intermediate",
@@ -54,7 +73,7 @@
     "id": "mongodb",
     "name": "MongoDB",
     "category": "Database",
-    "description": "A document-oriented NoSQL database designed for flexible and scalable modern applications.",
+    "description": "A flexible document-oriented NoSQL database designed for scalable modern applications.",
     "icon": "https://icon.icepanel.io/Technology/svg/MongoDB.svg",
     "rating": 4.7,
     "difficulty": "Beginner-Friendly",
@@ -64,7 +83,7 @@
     "id": "redis",
     "name": "Redis",
     "category": "Database",
-    "description": "A fast in-memory data store commonly used for caching, messaging, and real-time applications.",
+    "description": "A high-speed in-memory data store used for caching, messaging, and real-time applications.",
     "icon": "https://icon.icepanel.io/Technology/svg/Redis.svg",
     "rating": 4.8,
     "difficulty": "Intermediate",
@@ -74,7 +93,7 @@
     "id": "typescript",
     "name": "TypeScript",
     "category": "Language",
-    "description": "A strongly typed programming language that builds on JavaScript for safer development.",
+    "description": "A strongly typed language built on JavaScript that improves reliability and developer productivity.",
     "icon": "https://icon.icepanel.io/Technology/svg/TypeScript.svg",
     "rating": 4.9,
     "difficulty": "Intermediate",
@@ -84,7 +103,7 @@
     "id": "tailwindcss",
     "name": "Tailwind CSS",
     "category": "Styling",
-    "description": "A utility-first CSS framework for rapidly building responsive and customized user interfaces.",
+    "description": "A utility-first CSS framework for rapidly creating responsive and customized user interfaces.",
     "icon": "https://icon.icepanel.io/Technology/svg/Tailwind-CSS.svg",
     "rating": 4.8,
     "difficulty": "Beginner-Friendly",
@@ -99,5 +118,37 @@
     "rating": 4.8,
     "difficulty": "Advanced",
     "badge": "Essential"
+  },
+  {
+    "id": "firebase",
+    "name": "Firebase",
+    "category": "Backend",
+    "description": "A cloud development platform providing authentication, databases, hosting, and other backend services.",
+    "icon": "https://icon.icepanel.io/Technology/svg/Firebase.svg",
+    "rating": 4.7,
+    "difficulty": "Beginner-Friendly",
+    "badge": "Cloud"
+  },
+  {
+    "id": "git",
+    "name": "Git",
+    "category": "Tooling",
+    "description": "A distributed version control system for tracking code changes and supporting team collaboration.",
+    "icon": "https://icon.icepanel.io/Technology/svg/Git.svg",
+    "rating": 4.9,
+    "difficulty": "Beginner-Friendly",
+    "badge": "Essential"
+  },
+  {
+    "id": "vite",
+    "name": "Vite",
+    "category": "Tooling",
+    "description": "A modern frontend build tool offering instant development servers and optimized production builds.",
+    "icon": "https://icon.icepanel.io/Technology/svg/Vite.js.svg",
+    "rating": 4.8,
+    "difficulty": "Beginner-Friendly",
+    "badge": "Lightning Fast"
   }
+
+
 ]
