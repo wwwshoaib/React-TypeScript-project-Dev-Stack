@@ -1,7 +1,6 @@
-import {
-  useState,
-  type Dispatch,
-  type SetStateAction,
+import type {
+  Dispatch,
+  SetStateAction,
 } from "react";
 
 import { toast } from "react-toastify";
@@ -9,17 +8,18 @@ import type { TechTypeProps } from "../../Type/TechType";
 
 interface TechCardProps {
   tech: TechTypeProps;
+  Stack: TechTypeProps[];
   setStack: Dispatch<SetStateAction<TechTypeProps[]>>;
   setTechNumber: Dispatch<SetStateAction<number>>;
 }
 
 const TechCard = ({
   tech,
+  Stack,
   setStack,
   setTechNumber,
 }: TechCardProps) => {
   const {
-    id,
     name,
     category,
     description,
@@ -29,25 +29,16 @@ const TechCard = ({
     badge,
   } = tech;
 
-  const [isSelected, setIsSelected] = useState<boolean>(false);
+  // Stack-এ technology থাকলে button disabled হবে।
+  // Delete করলে এটি automatically false হয়ে button active হবে।
+  const isSelected = Stack.some(
+    (stackTech) => stackTech.id === tech.id,
+  );
 
   const handleAddToStack = () => {
     if (isSelected) return;
 
-    setIsSelected(true);
-
-    
-    setStack((previousStack) => {
-      const alreadyAdded = previousStack.some(
-        (stackTech) => stackTech.id === id,
-      );
-
-      if (alreadyAdded) {
-        return previousStack;
-      }
-
-      return [...previousStack, tech];
-    });
+    setStack((previousStack) => [...previousStack, tech]);
 
     setTechNumber((previousNumber) => previousNumber + 1);
 
