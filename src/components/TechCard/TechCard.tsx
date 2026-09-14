@@ -1,11 +1,25 @@
+import {
+  useState,
+  type Dispatch,
+  type SetStateAction,
+} from "react";
+
+import { toast } from "react-toastify";
 import type { TechTypeProps } from "../../Type/TechType";
 
 interface TechCardProps {
   tech: TechTypeProps;
+  setStack: Dispatch<SetStateAction<TechTypeProps[]>>;
+  setTechNumber: Dispatch<SetStateAction<number>>;
 }
 
-const TechCard = ({ tech }: TechCardProps) => {
+const TechCard = ({
+  tech,
+  setStack,
+  setTechNumber,
+}: TechCardProps) => {
   const {
+    id,
     name,
     category,
     description,
@@ -14,6 +28,39 @@ const TechCard = ({ tech }: TechCardProps) => {
     difficulty,
     badge,
   } = tech;
+
+  const [isSelected, setIsSelected] = useState<boolean>(false);
+
+  const handleAddToStack = () => {
+    if (isSelected) return;
+
+    setIsSelected(true);
+
+    
+    setStack((previousStack) => {
+      const alreadyAdded = previousStack.some(
+        (stackTech) => stackTech.id === id,
+      );
+
+      if (alreadyAdded) {
+        return previousStack;
+      }
+
+      return [...previousStack, tech];
+    });
+
+    setTechNumber((previousNumber) => previousNumber + 1);
+
+    toast.success(`${name} added to Stack`, {
+      position: "top-center",
+      autoClose: 600,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "light",
+    });
+  };
 
   return (
     <article className="flex min-h-[340px] w-full flex-col rounded-[20px] border border-[#e7ebf1] bg-white p-6 shadow-[0_3px_12px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(15,23,42,0.1)]">
@@ -67,9 +114,15 @@ const TechCard = ({ tech }: TechCardProps) => {
 
         <button
           type="button"
-          className="mt-4 h-11 w-full rounded-lg bg-[#080e1d] text-sm font-medium text-white transition duration-300 hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-500 active:scale-[0.98]"
+          onClick={handleAddToStack}
+          disabled={isSelected}
+          className={`mt-4 h-9 w-full rounded-md border text-xs font-semibold transition ${
+            isSelected
+              ? "cursor-not-allowed border-gray-400 bg-gray-400 text-white"
+              : "border-[#ffaaa7] bg-violet-500 text-white hover:bg-green-600"
+          }`}
         >
-          Add to Stack
+          {isSelected ? "Added to Stack" : "Add to Stack"}
         </button>
       </div>
     </article>

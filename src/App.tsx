@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { ToastContainer } from "react-toastify/unstyled";
+import { ToastContainer } from "react-toastify";
 
 import "./App.css";
 import Nav from "./components/Nav/Nav";
@@ -22,6 +22,8 @@ function App() {
   
   const techPromise = loadTechnologies();
 
+ 
+
   return (
     <>
       <Nav />
@@ -37,7 +39,10 @@ function App() {
           </div>
         }
       >
-        <Technologies techPromise={techPromise} />
+        <Technologies 
+        techPromise={techPromise} 
+      
+         />
       </Suspense>
 
       <Footer></Footer>
