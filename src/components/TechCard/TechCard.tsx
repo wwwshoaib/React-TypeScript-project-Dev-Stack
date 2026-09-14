@@ -29,8 +29,7 @@ const TechCard = ({
     badge,
   } = tech;
 
-  // Stack-এ technology থাকলে button disabled হবে।
-  // Delete করলে এটি automatically false হয়ে button active হবে।
+  
   const isSelected = Stack.some(
     (stackTech) => stackTech.id === tech.id,
   );

@@ -35,11 +35,7 @@ Users can add technologies, view selected items, delete a single technology, or 
 
 It is used in React because it makes user interfaces and components easier to create, understand, and maintain.
 
-```tsx
-const heading = <h1>Hello React</h1>;
-```
 
----
 
 ## 2. What is the difference between props and state?
 
